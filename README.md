@@ -1,4 +1,4 @@
-# Devout
+# DevOut
 
 #### A simple cross-platform logging library.
 
@@ -20,17 +20,28 @@ Devout targets all platforms that can run Rust.
  - Android **Planned Next**
 
 ## License
-Licensed under either of
- - Apache License, Version 2.0,
-   ([LICENSE-APACHE][7] or [https://www.apache.org/licenses/LICENSE-2.0][8])
- - Zlib License,
-   ([LICENSE-ZLIB][9] or [https://opensource.org/licenses/Zlib][10])
+
+Copyright © 2019-2025 The Devout Contributors.
+
+Licensed under any of
+ - Apache License, Version 2.0, ([LICENSE\_APACHE][7] or
+   <https://www.apache.org/licenses/LICENSE-2.0>)
+ - Boost Software License, Version 1.0, ([LICENSE\_BOOST][8] or
+   <https://www.boost.org/LICENSE_1_0.txt>)
+ - MIT License, ([LICENSE\_MIT][9] or <https://mit-license.org/>)
+
 at your option.
 
 ### Contribution
+
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
-dual licensed as above, without any additional terms or conditions.
+licensed as described above, without any additional terms or conditions.
+
+## Help
+
+If you want help using or contributing to this library, feel free to send me an
+email at <aldaronlau@gmail.com>.
 
 [0]: https://docs.rs/devout
 [1]: https://crates.io/crates/devout
@@ -39,7 +50,6 @@ dual licensed as above, without any additional terms or conditions.
 [4]: https://libcala.github.io/devout/
 [5]: https://github.com/libcala/devout/
 [6]: https://aldaronlau.com/
-[7]: https://github.com/libcala/devout/blob/master/LICENSE-APACHE
-[8]: https://www.apache.org/licenses/LICENSE-2.0
-[9]: https://github.com/libcala/devout/blob/master/LICENSE-ZLIB
-[10]: https://opensource.org/licenses/Zlib
+[7]: https://github.com/libcala/devout/blob/master/LICENSE_APACHE
+[8]: https://github.com/libcala/devout/blob/master/LICENSE_BOOST
+[9]: https://github.com/libcala/devout/blob/master/LICENSE_MIT

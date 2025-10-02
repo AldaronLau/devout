@@ -1,23 +1,18 @@
-# DevOut
-#
-# Copyright (c) 2019-2020 Jeron Aldaron Lau
-# 
-# Licensed under the Apache License, Version 2.0, <LICENSE-APACHE or
-# https://apache.org/licenses/LICENSE-2.0>, or the Zlib License, <LICENSE-ZLIB
-# or http://opensource.org/licenses/Zlib>, at your option. This file may not be
-# copied, modified, or distributed except according to those terms.
-
 [package]
 name = "devout"
 version = "0.2.0"
-authors = ["Jeron Aldaron Lau <jeronlau@plopgrizzly.com>"]
-license = "Apache-2.0/Zlib"
-
-description = "A simple cross-platform logging library."
-repository = "https://github.com/libcala/devout"
+license = "Apache-2.0 OR BSL-1.0 OR MIT"
+description = "A simple cross-platform logging library"
+repository = "https://github.com/AldaronLau/devout"
 documentation = "https://docs.rs/devout"
-homepage = "https://github.com/libcala/devout/blob/master/CHANGELOG.md"
-include = ["Cargo.toml", "README.md", "LICENSE-ZLIB", "LICENSE-APACHE", "src/*"]
+homepage = "https://github.com/AldaronLau/devout/releases"
+include = [
+    "/LICENSE_APACHE",
+    "/LICENSE_BOOST",
+    "/LICENSE_MIT",
+    "/README.md",
+    "/src/*",
+]
 categories = ["development-tools::debugging", "wasm"]
 keywords = ["logging", "print", "wasm", "journal", "output"]
 readme = "README.md"
