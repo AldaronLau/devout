@@ -1,31 +1,29 @@
-// DevOut
-//
-// Copyright (c) 2019-2020 Jeron Aldaron Lau
-//
-// Licensed under the Apache License, Version 2.0, <LICENSE-APACHE or
-// https://apache.org/licenses/LICENSE-2.0>, or the Zlib License, <LICENSE-ZLIB
-// or http://opensource.org/licenses/Zlib>, at your option. This file may not be
-// copied, modified, or distributed except according to those terms.
-
+//! A simple cross-platform logging library
+//!
 //! # Getting Started
 //! Add the following to your `Cargo.toml`:
+//!
 //! ```toml
 //! [dependencies.devout]
-//! version = "0.1.0"
+//! version = "1.0.0"
+//! # Optional integration with the log crate
+//! features = ["log+0.4"]
+//!
+//! # Optional integration with the log crate
+//! [dependencies.log-0_4]
+//! package = "log"
+//! version = "0.4"
+//! optional = true
 //! ```
 //!
-//! ```rust
-//! use devout::{log, Tag};
-//!
-//! const INFO: Tag = Tag::new("Info").show(true);
-//!
-//! log!(INFO, "Result: {}", 4.4);
+//! ```
+#![doc = include_str!("../examples/example.rs")]
 //! ```
 
+#![no_std]
 #![doc(
-    html_logo_url = "https://libcala.github.io/logo.svg",
-    html_favicon_url = "https://libcala.github.io/icon.svg",
-    html_root_url = "https://docs.rs/devout"
+    html_logo_url = "https://ardaku.github.io/mm/logo.svg",
+    html_favicon_url = "https://ardaku.github.io/mm/icon.svg"
 )]
 #![deny(unsafe_code)]
 #![warn(
@@ -44,6 +42,24 @@
     variant_size_differences
 )]
 
+#[cfg(feature = "std")]
+extern crate std;
+
+mod log;
+mod log_level;
+mod logger;
+mod macros;
+mod target;
+
+#[cfg(feature = "log+0.4")]
+pub use self::log::version_0_4::*;
+pub use self::{
+    log_level::LogLevel,
+    logger::{logger, Log},
+    target::Target,
+};
+
+/*
 /// A tag to identify a log.
 #[derive(Copy, Clone, Debug)]
 pub struct Tag(Option<&'static str>);
@@ -86,30 +102,8 @@ impl Tag {
 
     /// Print out a log message with this tag.  Prefer `log!()` instead.
     #[inline(always)]
-    pub fn log(&self, args: std::fmt::Arguments<'_>) {
-        if let Some(tag) = self.as_option() {
-            #[cfg(not(target_arch = "wasm32"))]
-            let _ = <std::io::Stdout as std::io::Write>::write_fmt(
-                &mut std::io::stdout(),
-                format_args!("[{}] {}\n", tag, args),
-            );
-
-            #[cfg(target_arch = "wasm32")]
-            web_sys::console::log_1(&wasm_bindgen::JsValue::from_str(&format!(
-                "[{}] {}",
-                tag, args
-            )));
-        }
+    pub fn log(&self, args: core::fmt::Arguments<'_>) {
+        #[cfg(target_arch = "wasm32")]
+        web_sys::console::log_1(&format!("[{target}] {args}"));
     }
-}
-
-/// Write a message to the log.
-#[macro_export]
-macro_rules! log {
-    ($tag:ident) => {{
-        $tag.log(format_args!(""));
-    }};
-    ($tag:ident, $($arg:tt)*) => {{
-        $tag.log(format_args!($($arg)*));
-    }};
-}
+}*/

@@ -20,7 +20,18 @@ edition = "2018"
 
 # Use web-sys and wasm-bingen to log to wasm console
 [target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
-version = "0.3"
+version = "0.3.81"
 features = ["console"]
-[target.'cfg(target_arch = "wasm32")'.dependencies.wasm-bindgen]
-version = "0.2"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies.yansi]
+version = "1.0.1"
+
+[dependencies.log-0_4]
+package = "log"
+version = "0.4"
+optional = true
+
+[features]
+"default" = ["std"]
+"std" = []
+"log+0.4" = ["dep:log-0_4"]
